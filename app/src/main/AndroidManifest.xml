@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
 
         <meta-data
-            android:name="com.milibris.pdfreader.apikey"
+            android:name="com.milibris.pdfreader.licencekey"
             android:value="KTUnw8f4IKikJNWt51VZ/4Gt13DwcMYLojXWjcoBSNzPwdHrJuTAQ1xGfdfuRBqcupfRutYK9NrZtZRu8X8VJqa7+T/jcMkytWDNrjpALSXn58nCKV6aTQmQZlqMkbT/Zc/FJ4U+RjCOPQ820tEGuZUA4p4Z5wIy6zAi8m02bRIC12nIVi1+kUGeFjrX3bohvRoUcixcIU7GUsay754maWlmDxrjvXHn7KjXAIWMLYmTStjhgH+etjwCHJfBmT0G1AUB7+SdwCSZyXY8frlXCG0HN6xuSFRDvjbOf2Kw4MH0Y1Hrvcyz2sAFYHyYdhPnf64Ia43t+Gd37xhhINEdtA==" />
 
         <activity android:name=".MainActivity">

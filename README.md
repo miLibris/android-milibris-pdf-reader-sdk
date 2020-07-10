@@ -13,25 +13,74 @@ allprojects {
         jcenter()
         maven { url "https://jitpack.io" }
         maven { url 'http://repo.brightcove.com/releases' }
-        maven {
-            url 'https://maven.milibris.com/'
-            credentials {
-                username = maven_user
-                password = maven_password
-            }
-        }
+        maven { url 'https://maven-android-sdk.milibris.net/' }
     }
 }
 
 dependencies {
-  api 'com.milibris:pdf-reader:2.6.16'
+  api 'com.milibris:pdf-reader:2.3.0'
 }
 ```
 
 In order for the sdk to work you need to add the API-KEY in your manifest as below
 ```manifest
 <meta-data
-    android:name="com.milibris.pdfreader.apikey"
-    android:value="YOU_API_KEY" />
+    android:name="com.milibris.pdfreader.licencekey"
+    android:value="YOUR_LICENCE_KEY" />
 
+```
+
+# Implementation
+
+In order to read a content, your application will likely implement the following steps:
+1. Download a complete archive (with the *.complete extension) from the miLibris
+platform.
+2. Unpack the archive using MLFoundation
+3. Launch PDFReader to read the unpacked contents
+1. Unpack a complete archive with MLFoundation
+A complete archive can be easily unpacked with the MLFoundation library utilities (see
+example below, extracting a sample.complete file in Android assets).
+```
+FoundationContext foundationContext =
+Foundation.createContext(getApplicationContext());
+CompleteArchive archive = new CompleteArchive(foundationContext, new
+File(getExternalFilesDir(null), "sample.complete"));
+try {
+archive.unpackTo(new File(getExternalFilesDir(null), "sample"));
+} catch (Throwable e) {
+e.printStackTrace();
+}
+```
+**1. Read unpacked contents**
+
+Once unpacked, you can open the content by starting a new Activity with PdfReader.
+```
+// Configure the reader with a PdfReader.Configuration instance
+PdfReader.Configuration config = new PdfReader.Configuration() {
+// Override methods to change reader configuration
+}
+// Set content path
+File contentFile = new File(getExternalFilesDir(null), "sample");
+String contentPath = contentFile().getAbsolutePath();
+// Initialize the PDF Reader to open the content
+PdfReader reader = new PdfReader(getApplicationContext(), "path/to/content",
+config);
+// Assign a listener to get notified from reader changes
+reader.setReaderListener(new PdfReader.Listener() {
+@Override
+public void onFinishReading(PdfReader reader) {
+Log.i(TAG, "Reader event: finish reading");
+}
+@Override
+public void onPdfLoadingError(Exception e) {
+Log.i(TAG, "Reader event: PDF is corrupted error ");
+}
+});
+```
+We are providing an instance of PdfReader.Configuration to customize the reader and
+providing an object implementing the PdfReader.Listener interface. We can then start
+the activity.
+```
+// Start reader activity from parent activity (this)
+reader.startReaderActivity(this);
 ```
