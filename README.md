@@ -22,7 +22,7 @@ dependencies {
 }
 ```
 
-In order for the sdk to work you need to add the API-KEY in your manifest as below
+In order for the sdk to work you need to add the licence key in your manifest as below
 ```manifest
 <meta-data
     android:name="com.milibris.pdfreader.licencekey"
@@ -37,7 +37,8 @@ In order to read a content, your application will likely implement the following
 platform.
 2. Unpack the archive using MLFoundation
 3. Launch PDFReader to read the unpacked contents
-1. Unpack a complete archive with MLFoundation
+
+**1. Unpack a complete archive with MLFoundation
 A complete archive can be easily unpacked with the MLFoundation library utilities (see
 example below, extracting a sample.complete file in Android assets).
 ```
@@ -46,18 +47,19 @@ Foundation.createContext(getApplicationContext());
 CompleteArchive archive = new CompleteArchive(foundationContext, new
 File(getExternalFilesDir(null), "sample.complete"));
 try {
-archive.unpackTo(new File(getExternalFilesDir(null), "sample"));
+    archive.unpackTo(new File(getExternalFilesDir(null), "sample"));
 } catch (Throwable e) {
-e.printStackTrace();
+    e.printStackTrace();
 }
 ```
-**1. Read unpacked contents**
+
+**2. Read unpacked contents**
 
 Once unpacked, you can open the content by starting a new Activity with PdfReader.
 ```
 // Configure the reader with a PdfReader.Configuration instance
 PdfReader.Configuration config = new PdfReader.Configuration() {
-// Override methods to change reader configuration
+    // Override methods to change reader configuration
 }
 // Set content path
 File contentFile = new File(getExternalFilesDir(null), "sample");
@@ -67,14 +69,14 @@ PdfReader reader = new PdfReader(getApplicationContext(), "path/to/content",
 config);
 // Assign a listener to get notified from reader changes
 reader.setReaderListener(new PdfReader.Listener() {
-@Override
-public void onFinishReading(PdfReader reader) {
-Log.i(TAG, "Reader event: finish reading");
-}
-@Override
-public void onPdfLoadingError(Exception e) {
-Log.i(TAG, "Reader event: PDF is corrupted error ");
-}
+    @Override
+    public void onFinishReading(PdfReader reader) {
+        Log.i(TAG, "Reader event: finish reading");
+    }
+    @Override
+    public void onPdfLoadingError(Exception e) {
+        Log.i(TAG, "Reader event: PDF is corrupted error ");
+    }
 });
 ```
 We are providing an instance of PdfReader.Configuration to customize the reader and
@@ -84,3 +86,9 @@ the activity.
 // Start reader activity from parent activity (this)
 reader.startReaderActivity(this);
 ```
+
+**3. Sample project
+
+A sample project is provided to help you implement the reader integration. It contains an example to unpack a complete archive and to open if with PdfReader class.
+
+If your miLibris content has articles, you can implement your own sharing solution by implementing isArticlesSharingEnabled() and shareArticleContent() in the configuration object. A basic example is also provided in the sample project.
