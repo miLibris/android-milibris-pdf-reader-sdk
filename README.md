@@ -39,6 +39,7 @@ platform.
 3. Launch PDFReader to read the unpacked contents
 
 **1. Unpack a complete archive with MLFoundation**
+
 A complete archive can be easily unpacked with the MLFoundation library utilities (see
 example below, extracting a sample.complete file in Android assets).
 ```
