@@ -22,13 +22,7 @@ allprojects {
         jcenter()
         maven { url "https://jitpack.io" }
         maven { url 'http://repo.brightcove.com/releases' }
-        maven {
-            url 'https://maven-android-sdk.milibris.net/'
-            credentials {
-                username = maven_user
-                password = maven_password
-            }
-        }
+        maven { url 'https://maven-android-sdk.milibris.net/' }
     }
 }
 
