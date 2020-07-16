@@ -1,5 +1,8 @@
 # miLibris android PDFReader Change log
 
+### 3.0.1
+Update SDK version to fix a missing library
+
 ### 3.0.0
 
 The SDK is now distributed through Maven. Instructions for installation, usage, and a sample project can be found at https://github.com/miLibris/android-milibris-pdf-reader-sdk.
