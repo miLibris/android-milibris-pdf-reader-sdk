@@ -1,5 +1,8 @@
 # CHANGELOG
 
+### 3.1.1
+- Set back the minimum SDK to 17 to improve android compatibility
+
 ### 3.1.0
 - Update to Android SDK 29
 - Minimum SDK to 18 (17 previously)
