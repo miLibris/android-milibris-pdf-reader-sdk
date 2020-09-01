@@ -1,5 +1,8 @@
 # CHANGELOG
 
+### 3.1.2
+- Change the color of vertical scroll bar from white to grey in article view
+
 ### 3.1.1
 - Set back the minimum SDK to 17 to improve android compatibility
 
