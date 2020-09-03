@@ -1,5 +1,8 @@
 # CHANGELOG
 
+### 3.1.3
+- Change the color of vertical scroll to work on old android versions 
+
 ### 3.1.2
 - Change the color of vertical scroll bar from white to grey in article view
 
