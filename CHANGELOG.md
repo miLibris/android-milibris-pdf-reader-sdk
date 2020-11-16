@@ -1,7 +1,12 @@
 # CHANGELOG
 
+### 3.2.0
+- Add two new Configurations for the reader:
+    * isLandscapeOnly (to force the reader in landscape only mode only for smart phones not for tablet)
+    * isDoublePage so the user can chose between showing one or two pages.
+
 ### 3.1.3
-- Change the color of vertical scroll to work on old android versions 
+- Change the color of vertical scroll to work on old android versions
 
 ### 3.1.2
 - Change the color of vertical scroll bar from white to grey in article view
