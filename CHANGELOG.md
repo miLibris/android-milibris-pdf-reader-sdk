@@ -1,5 +1,9 @@
 # CHANGELOG
 
+### 3.3.0
+- Add Support for mail links
+- Add close button to Image slider
+
 ### 3.2.0
 - Add two new Configurations for the reader:
     * isLandscapeOnly (to force the reader in landscape only mode only for smart phones not for tablet)
