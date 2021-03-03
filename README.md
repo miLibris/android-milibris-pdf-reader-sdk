@@ -88,7 +88,20 @@ the activity.
 reader.startReaderActivity(this);
 ```
 
-**3. Sample project**
+
+**3 Sharing an article
+
+If your miLibris content has articles, you can implement your own sharing solution by implementing void shareArticleContent. Two examples are provided in the sample project:
+
+#### Share link to web kiosk
+
+Share the web kiosk URL of an article. The user can use the social app of his/her choice. This feature must be enabled on the web kiosk. Contact miLibris support for more info.
+
+#### Send article by email
+
+Send the content of an article by email.
+
+**4. Sample project**
 
 A sample project is provided to help you implement the reader integration. It contains an example to unpack a complete archive and to open if with PdfReader class.
 
