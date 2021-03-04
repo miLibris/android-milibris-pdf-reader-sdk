@@ -91,7 +91,7 @@ reader.startReaderActivity(this);
 
 **3 Sharing an article
 
-If your miLibris content has articles, you can implement your own sharing solution by implementing void shareArticleContent. Two examples are provided in the sample project:
+If your miLibris content has articles, you can implement your own sharing solution by implementing shareArticleContent. Two examples are provided in the sample project:
 
 #### Share link to web kiosk
 
