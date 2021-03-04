@@ -32,7 +32,6 @@ object SharingUtils {
 
         val intent = Intent(Intent.ACTION_SENDTO)
         intent.data = Uri.parse("mailto:")
-        intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("test@test.com"))
         intent.putExtra(Intent.EXTRA_SUBJECT, mailSubject(article))
 
         val contentBuilder =
@@ -69,8 +68,8 @@ object SharingUtils {
         return article.title?.let { title ->
             article.editionTitle.let { editionTitle ->
                 article.editionSubtitle?.let { editionSubtitle ->
-                    "$title  $editionTitle, $editionSubtitle"
-                } ?: "$title  $editionTitle"
+                    "$title  ($editionTitle, $editionSubtitle)"
+                } ?: "$title  ($editionTitle)"
             }
         } ?: ""
     }
