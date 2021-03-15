@@ -70,6 +70,10 @@ public class MainActivity extends AppCompatActivity implements PageListener {
                         // Implement custom sharing logic (Android Intent?)
                     }
 
+                    @Override
+                    public boolean articleTTSEnabled() {
+                        return true;
+                    }
                     // Uncomment to change navigation colors
             /*
             @Override

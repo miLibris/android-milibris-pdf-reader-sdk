@@ -1,5 +1,9 @@
 # CHANGELOG
 
+### 3.4.0
+- Add Subtitle Date formatter
+- Add TTS in Articles Mode
+
 ### 3.3.0
 - Add Support for mail links
 - Add close button to Image slider
