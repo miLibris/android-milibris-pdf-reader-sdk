@@ -17,10 +17,7 @@ object SharingUtils {
         article: PdfReader.Article
     ) {
 
-        val articleUrl = java.lang.StringBuilder(kioskURL)
-            .append("/share/article")
-            .append("/$issueMid")
-            .append("/${article.mid}").toString()
+        val articleUrl = "$kioskURL/share/article/$issueMid/${article.mid}"
         val intentBuilder = IntentBuilder.from(activity)
             .setType("text/plain")
             .setText(articleUrl)
@@ -65,12 +62,14 @@ object SharingUtils {
 
     private fun mailSubject(article: PdfReader.Article): String {
         // article_title (edition_title, edition_subtitle)
-        return article.title?.let { title ->
-            article.editionTitle.let { editionTitle ->
-                article.editionSubtitle?.let { editionSubtitle ->
-                    "$title  ($editionTitle, $editionSubtitle)"
-                } ?: "$title  ($editionTitle)"
+        return when {
+            article.title.isNullOrEmpty() -> ""
+            article.editionSubtitle.isNullOrEmpty() -> {
+                "${article.title} (${article.editionTitle})"
             }
-        } ?: ""
+            else -> {
+                "${article.title} (${article.editionTitle}, ${article.editionSubtitle})"
+            }
+        }
     }
 }
