@@ -3,16 +3,18 @@ package com.milibris.pdfreader.sampleapp;
 import android.app.Activity;
 import android.content.res.AssetManager;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.milibris.foundation.CompleteArchive;
 import com.milibris.foundation.Foundation;
 import com.milibris.foundation.FoundationContext;
 import com.milibris.lib.pdfreader.PdfReader;
 import com.milibris.lib.pdfreader.ui.PageListener;
+import com.milibris.pdfreader.sampleapp.sharing.SharingUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -66,7 +68,15 @@ public class MainActivity extends AppCompatActivity implements PageListener {
                     @Override
                     public void shareArticleContent(PdfReader.Article article, Activity activity) {
                         Log.i(TAG, "Share article: " + article.title);
+                        //
+                        //   This is an example for sharing the article content via the email
+                        //   SharingUtils.INSTANCE.shareArticleViaMail(activity, article);
 
+                        //Second example to share the Article Url
+                        SharingUtils.INSTANCE.shareArticleUrl(activity,
+                                "IssueMidExample",
+                                "https://www.examplekiosk.milibris.com",
+                                article);
                         // Implement custom sharing logic (Android Intent?)
                     }
 
