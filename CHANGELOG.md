@@ -1,5 +1,8 @@
 # CHANGELOG
 
+### 3.4.1
+- Fix TTS for content longer than the Maximum supported by the google's TTS
+
 ### 3.4.0
 - Add Subtitle Date formatter
 - Add TTS in Articles Mode

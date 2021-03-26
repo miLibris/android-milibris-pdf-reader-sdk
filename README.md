@@ -18,7 +18,7 @@ allprojects {
 }
 
 dependencies {
-  api 'com.milibris:pdf-reader:3.4.0'
+  api 'com.milibris:pdf-reader:3.4.1'
 }
 ```
 
