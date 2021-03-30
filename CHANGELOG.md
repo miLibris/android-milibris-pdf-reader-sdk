@@ -1,5 +1,8 @@
 # CHANGELOG
 
+### 3.4.2
+- Fix TTS for devices lower  or equal to 8.0
+
 ### 3.4.1
 - Fix TTS for content longer than the Maximum supported by the google's TTS
 
