@@ -1,5 +1,8 @@
 # CHANGELOG
 
+### 3.5.0
+- Update target sdk to 30 and update WebView configuration accordingly
+
 ### 3.4.2
 - Fix TTS for devices lower  or equal to 8.0
 
