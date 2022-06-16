@@ -88,6 +88,27 @@ the activity.
 reader.startReaderActivity(this);
 ```
 
+If you want to track user events on reader you need to implement the stats listener as follow:
+```
+        reader.setStatsListener(new StatsListener() {
+            @Override
+            public void onMoveToPageNumber(PdfReader pdfReader, int pageNumber) {
+                // index of page number opened
+            }
+
+            @Override
+            public void onOpenArticle(PdfReader pdfReader, Map<String, Object> article) {
+                //Article opened
+            }
+
+            @Override
+            public void onSwipeArticle(PdfReader pdfReader, Map<String, Object> article) {
+                //Swiped to new article
+            }
+            ....
+        });
+```
+
 
 **3 Sharing an article
 

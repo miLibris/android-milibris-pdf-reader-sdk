@@ -13,6 +13,7 @@ import com.milibris.foundation.CompleteArchive;
 import com.milibris.foundation.Foundation;
 import com.milibris.foundation.FoundationContext;
 import com.milibris.lib.pdfreader.PdfReader;
+import com.milibris.lib.pdfreader.stats.StatsListener;
 import com.milibris.lib.pdfreader.ui.PageListener;
 import com.milibris.pdfreader.sampleapp.sharing.SharingUtils;
 
@@ -21,6 +22,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Map;
 
 /**
  * Sample activity unpacking and reading a content with PDF reader.
@@ -117,6 +119,44 @@ public class MainActivity extends AppCompatActivity implements PageListener {
                 Log.e(TAG, "Reader event: can't load PDF", e);
 
                 Toast.makeText(MainActivity.this, "PDF file is corrupted, please try again to download and open.", Toast.LENGTH_SHORT).show();
+            }
+        });
+        reader.setStatsListener(new StatsListener() {
+
+            @Override
+            public void onMoveToPageNumber(PdfReader pdfReader, int pageNumber) {
+                // index of page number opened
+            }
+
+            @Override
+            public void onOpenArticle(PdfReader pdfReader, Map<String, Object> article) {
+                //Article opened
+            }
+
+            @Override
+            public void onSwipeArticle(PdfReader pdfReader, Map<String, Object> article) {
+                //Swiped to new article
+            }
+
+            @Override
+            public void onOpenLinkBoxWithContentUrl(PdfReader pdfReader, String contentUrl) {
+                //url box clicked
+            }
+
+            @Override
+            public void onOpenSlideshowBoxWithResourceName(PdfReader pdfReader, String resourceName) {
+                //Slide show enrichment is opened
+
+            }
+
+            @Override
+            public void onOpenVideoBoxWithContentUrl(PdfReader pdfReader, String contentUrl) {
+                //Video enrichment is opened
+            }
+
+            @Override
+            public void onOpenHtml5BoxWithResourceName(PdfReader pdfReader, String resourceName) {
+                //html5 enrichment is opened
             }
         });
 
