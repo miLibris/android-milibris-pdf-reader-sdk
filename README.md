@@ -1,4 +1,6 @@
-# android-milibris-pdf-reader-sdk
+# [OBSOLETE] android-milibris-pdf-reader-sdk
+
+⚠️ This repository is obsolete and no longer updated. Please use the new miLibris reader at https://github.com/miLibris/android-milibris-reader-sdk.
 
 **PDF Reader Sample APP**
 
